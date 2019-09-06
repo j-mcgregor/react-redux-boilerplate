@@ -3,21 +3,17 @@ const isDarkMode = localStorage.getItem("isDarkMode");
 
 export default {
   palette: {
+    dark: {
+      fgColor1: '#fafafa',
+      fgColor2: '#e0e0e0',
+      bgColor1: '#424242',
+      bgColor2: '#212121'
+    },
     light: {
       bgColor1: '#fafafa',
-      bgColor2: '#f5f5f5',
-      bgColor3: '#eeeeee',
-      bgColor4: '#e0e0e0',
-      bgColor5: '#bdbdbd',
-      fgColor1: '#9e9e9e',
-      fgColor2: '#757575',
-      fgColor3: '#616161',
-      fgColor4: '#424242',
-      fgColor5: '#212121',
-      active: '#337ab7'
-    },
-    dark: {
-
+      bgColor2: '#e0e0e0',
+      fgColor1: '#424242',
+      fgColor2: '#212121'
     }
   },
   theme: isDarkMode === 'true' ? 'dark' : 'light'

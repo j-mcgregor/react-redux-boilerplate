@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { hot } from "react-hot-loader";
 import styled, { ThemeProvider } from 'styled-components';
 import UsersContainer from "./containers/UsersContainer";
+import DashboardContainer from "./containers/DashboardContainer";
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/themeActions';
 import NotFoundPage from "./NotFoundPage";
@@ -26,10 +27,11 @@ class App extends Component {
 
     return (
       <ThemeProvider theme={theme.palette}>
-        <S.Body theme={theme.theme} palette={theme.palette}>
-          <Navbar switchTheme={() => actions.switchTheme(theme.theme)} theme={theme.theme} palette={theme.palette} />
+        <S.Body {...theme} >
+          <Navbar switchTheme={() => actions.switchTheme(theme.theme)} {...theme} />
           <Switch>
-            <Route exact path="/" render={props => <UsersContainer {...props} theme={theme} />} />
+            <Route exact path="/" render={props => <DashboardContainer {...props} theme={theme} />} />
+            <Route path="/users" render={props => <UsersContainer {...props} theme={theme} />} />
             <Route component={NotFoundPage} />
           </Switch>
         </S.Body>
